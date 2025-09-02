@@ -9,6 +9,7 @@
             background: url("{% static 'background.jpg' %}") no-repeat center center fixed;
             background-size: cover;
             font-family: 'Segoe UI', sans-serif;
+            transition: background 0.3s, color 0.3s;
         }
         .form-container {
             background: rgba(255, 255, 255, 0.96);
@@ -57,23 +58,187 @@
         .btn-analyze:hover {
             background: linear-gradient(90deg, #388e3c, #4caf50);
         }
+        /* Dark Mode Toggle Background */
+        .darkmode-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 8px 15px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        /* Plant Strip */
+        .plant-strip {
+            display: flex;
+            justify-content: center;
+            margin: 40px auto;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .plant-strip img {
+            width: 100%;
+            max-width: 900px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: rgba(255,255,255,0.95);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px auto;
+            max-width: 1000px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .info-section h3 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Facts Carousel */
+        .facts-carousel {
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        /* Care Tips */
+        .tip-card {
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            padding: 20px;
+            background: #f1f8e9;
+            transition: transform 0.3s;
+        }
+        .tip-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Plant Library */
+        .plant-library-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        .plant-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+        .plant-card:hover {
+            transform: scale(1.05);
+        }
+        .plant-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Care Level Progress */
+        .progress {
+            height: 20px;
+            border-radius: 10px;
+        }
+
+
+        /* FAQ Heading */
+.faq-heading {
+    display: inline-block;
+    background: rgba(200, 230, 201, 0.9); /* light green background */
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    font-weight: bold;
+    color: #2e7d32;
+}
+.dark-mode .faq-heading {
+    background: rgba(40, 40, 40, 0.9);
+    color: #a5d6a7;
+}
+
+
+        
+        /* FAQ */
+.accordion-button {
+    font-weight: 600;
+    color: #2e7d32;
+}
+.accordion-body {
+    background: rgba(200, 230, 201, 0.9); /* light green background */
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 10px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    color: #2e7d32;
+    font-size: 15px;
+    line-height: 1.6;
+}
+.dark-mode .accordion-body {
+    background: rgba(40, 40, 40, 0.95);
+    color: #e0e0e0;
+}
+
+
+        /* Dark Mode */
+        .dark-mode {
+            background: #1c1c1c !important;
+            color: #e0e0e0 !important;
+        }
+        .dark-mode .form-container,
+        .dark-mode .info-section,
+        .dark-mode .tip-card,
+        .dark-mode .carousel-item,
+        .dark-mode .plant-library-box {
+            background: rgba(40, 40, 40, 0.95) !important;
+            color: #e0e0e0 !important;
+        }
+        .dark-mode .plant-strip {
+            background: rgba(30, 30, 30, 0.9);
+        }
+        .dark-mode .accordion-button {
+            color: #a5d6a7;
+        }
+
+        /* Footer */
+        footer {
+            background: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            border-radius: 15px 15px 0 0;
+        }
     </style>
 </head>
 <body>
+
+<!-- Dark Mode Toggle -->
+<div class="text-end p-3">
+    <div class="darkmode-box">
+        <button id="themeToggle" class="btn btn-sm btn-outline-light">🌙 Dark Mode</button>
+    </div>
+</div>
+
 <div class="container">
     <div class="form-container">
         <h2>🌱 Plant Whisperer</h2>
         <p class="subtitle">Check Your Plant's Health & Get Expert Care Tips</p>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-
+            <!-- Inputs remain the same -->
             <label>🌞 Sunlight Exposure</label>
             <select name="sunlight" class="form-control mb-3">
                 <option value="full">🌞 Full Sun</option>
                 <option value="partial">⛅ Partial Sun</option>
                 <option value="low">🌑 Low Sun</option>
             </select>
-
             <label>💧 Watering Frequency</label>
             <select name="watering" class="form-control mb-3">
                 <option value="daily">💦 Daily</option>
@@ -81,7 +246,6 @@
                 <option value="weekly">🗓️ Weekly</option>
                 <option value="rare">🌵 Rarely</option>
             </select>
-
             <label>🍃 Leaf Color</label>
             <select name="leaf_color" class="form-control mb-3">
                 <option value="deep_green">🌿 Deep Green</option>
@@ -90,7 +254,6 @@
                 <option value="brown">🍁 Brown</option>
                 <option value="spots">🔴 Spots</option>
             </select>
-
             <label>🌱 Soil Moisture</label>
             <select name="soil_moisture" class="form-control mb-3">
                 <option value="wet">💦 Wet</option>
@@ -98,7 +261,6 @@
                 <option value="dry">🏜️ Dry</option>
                 <option value="cracked">⚡ Cracked</option>
             </select>
-
             <label>📈 Growth Rate</label>
             <select name="growth" class="form-control mb-3">
                 <option value="fast">⚡ Fast</option>
@@ -106,20 +268,138 @@
                 <option value="slow">🐢 Slow</option>
                 <option value="stunted">🛑 Stunted</option>
             </select>
-
             <label>🐛 Pest Issues</label>
             <select name="pests" class="form-control mb-3">
                 <option value="none">✅ No Pests</option>
                 <option value="few">🐜 Few</option>
                 <option value="many">🪲 Many</option>
             </select>
-
             <label class="mt-3">📷 Upload Plant Photo (Optional)</label>
             <input type="file" class="form-control mb-3" name="plant_image" accept="image/*">
-
             <button class="btn-analyze w-100">Analyze Plant Health</button>
         </form>
     </div>
 </div>
+
+<!-- Plant Strip -->
+<div class="plant-strip">
+    <img src="{% static 'plant1.jpg' %}" alt="Plant Animation">
+</div>
+
+<!-- Info Section -->
+<div class="info-section">
+    <h3>🌍 Why Take Care of Plants?</h3>
+    <p>
+        Plants are the lifeline of our planet. They provide oxygen, purify the air, reduce stress, and create a healthier environment. 
+        Taking care of plants ensures not only their growth but also our well-being. A healthy plant can brighten up a space, improve 
+        mental health, and even boost productivity. Moreover, plants play a vital role in combating climate change by absorbing carbon dioxide.
+    </p>
+</div>
+
+<!-- Facts Carousel -->
+<div id="plantFacts" class="carousel slide facts-carousel" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active text-center p-4 bg-light rounded">
+      🌿 Did you know? <b>Plants can communicate</b> using chemical signals in the soil.
+    </div>
+    <div class="carousel-item text-center p-4 bg-light rounded">
+      🌳 A single mature tree can produce enough oxygen for <b>two people</b> to breathe for a year.
+    </div>
+    <div class="carousel-item text-center p-4 bg-light rounded">
+      🌸 Indoor plants can reduce stress and boost memory by up to <b>20%</b>.
+    </div>
+  </div>
+</div>
+
+<!-- Plant Library -->
+<div class="container mt-5 plant-library-box">
+    <h3 class="text-center mb-4">🌼 Explore Plant Library</h3>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="plant-card">
+                <img src="{% static 'plant_library1.jpg' %}" alt="Aloe Vera">
+                <div class="p-3">
+                    <h5>Aloe Vera</h5>
+                    <p>Needs bright light and minimal water. Great for skin healing 🌿.</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar bg-success" style="width: 30%">Easy Care</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="plant-card">
+                <img src="{% static 'plant_library2.jpg' %}" alt="Snake Plant">
+                <div class="p-3">
+                    <h5>Snake Plant</h5>
+                    <p>Low light tolerant and needs occasional watering 🌱.</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar bg-info" style="width: 50%">Moderate Care</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="plant-card">
+                <img src="{% static 'plant_library3.jpg' %}" alt="Peace Lily">
+                <div class="p-3">
+                    <h5>Peace Lily</h5>
+                    <p>Thrives in shade and blooms beautiful white flowers 🌸.</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar bg-warning" style="width: 70%">Challenging Care</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container mt-5 text-center">
+    <h3 class="faq-heading mb-4">❓ Plant Care FAQ</h3>
+    <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                    How often should I water my plants?
+                </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    💧 Watering depends on plant type, but most indoor plants need water once the top inch of soil feels dry.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                    Why are my plant’s leaves turning yellow?
+                </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    🍂 Yellow leaves often mean overwatering, poor drainage, or lack of nutrients.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer>
+    <p>🌱 Developed with ❤️ by Plant Whisperer Team</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Dark Mode Toggle
+    const toggleBtn = document.getElementById("themeToggle");
+    const body = document.body;
+    toggleBtn.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        toggleBtn.textContent = body.classList.contains("dark-mode") ? "☀️ Light Mode" : "🌙 Dark Mode";
+    });
+</script>
 </body>
 </html>
