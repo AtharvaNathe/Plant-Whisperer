@@ -12,7 +12,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* full height center */
+            min-height: 100vh; /* Full height */
         }
         .result-container {
             background: rgba(255, 255, 255, 0.96);
@@ -83,10 +83,66 @@
             background: linear-gradient(90deg, #388e3c, #4caf50);
             color: white;
         }
+
+        /* Dark Mode Button */
+        .btn-darkmode {
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            border: none;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        .btn-darkmode:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Info Box */
+        .info-box {
+            margin-top: 30px;
+            background: rgba(46,125,50,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            color: #2e7d32;
+            font-size: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background: #1c1c1c !important;
+            color: #f5f5f5;
+        }
+        .dark-mode .result-container {
+            background: rgba(30,30,30,0.95);
+            color: #f5f5f5;
+        }
+        .dark-mode h2, 
+        .dark-mode h3 {
+            color: #a5d6a7;
+        }
+        .dark-mode .score-box {
+            background: #2e7d32;
+            color: #fff;
+        }
+        .dark-mode .advice-item {
+            background: #333;
+            color: #ddd;
+        }
+        .dark-mode .info-box {
+            background: rgba(255,255,255,0.1);
+            color: #eee;
+        }
     </style>
 </head>
 <body>
     <div class="result-container">
+        <!-- Dark Mode Toggle -->
+        <button class="btn-darkmode" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+
         <!-- Plant GIF on Top -->
         <div class="gif-container">
             <img src="{% static 'plant.jpg' %}" alt="Plant Growing">
@@ -111,7 +167,20 @@
             {% endfor %}
         </div>
 
+        <!-- Info Box -->
+        <div class="info-box">
+            🌿 Taking care of plants is not just about aesthetics – it helps purify the air,  
+            reduce stress, and promote a healthier environment. Healthy plants also support  
+            biodiversity and make your living space more lively.  
+        </div>
+
         <a href="/" class="btn-check-again">🔄 Check Another Plant</a>
     </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>
