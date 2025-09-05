@@ -1,5 +1,7 @@
 # 🌱 Plant Whisperer – Plant Health Prediction App  
 
+**The project is deployed using python anywhere** Visit : https://atharva75.pythonanywhere.com
+
 ## 📌 Overview  
 **Plant Whisperer** is a Django-based web application that helps users check the health of their plants using:  
 - **Form Inputs** (e.g., sunlight, watering, leaf color, pests, etc.)  
