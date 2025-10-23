@@ -1,4 +1,4 @@
-# 🌱 Plant Whisperer – Plant Health Prediction App  
+# 🌱 Plant Whisperer – Plant Health Prediction App   
 
 **The project is deployed using python anywhere** Visit : https://atharva75.pythonanywhere.com
 
