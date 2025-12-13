@@ -1,35 +1,66 @@
-# 🌱 Plant Whisperer – Plant Health Prediction App   
+# 🌱 Plant Whisperer – Plant Health Prediction App  
 
-**The project is deployed using python anywhere** Visit : https://atharva75.pythonanywhere.com
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white&style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Django-5.x-092E20?logo=django&logoColor=white&style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Machine%20Learning-Scikit--learn-F7931E?logo=scikitlearn&logoColor=white&style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white&style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Pillow-Image%20Processing-6A5ACD?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Bootstrap-5-7952B3?logo=bootstrap&logoColor=white&style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/PythonAnywhere-Hosting-1D9BF0?style=for-the-badge"/>
+</p>
+
+**🚀 Live Deployment:**  
+👉 https://atharva75.pythonanywhere.com  
+
+---
 
 ## 📌 Overview  
 **Plant Whisperer** is a Django-based web application that helps users check the health of their plants using:  
-- **Form Inputs** (e.g., sunlight, watering, leaf color, pests, etc.)  
-- **Image Uploads** (basic simulated analysis using Pillow, extendable with deep learning)  
+- **Form Inputs** (sunlight, watering frequency, leaf color, pest presence, etc.)  
+- **Image Uploads** (basic simulated analysis using Pillow; extendable to CNN-based deep learning models)  
 
-The app predicts whether a plant is **Thriving 🌱, Okay 🌤️, Weak 🌿, or Sick 🤒** and provides a **health score** along with **actionable care advice**.  
+The app predicts whether a plant is **Thriving 🌱, Okay 🌤️, Weak 🌿, or Sick 🤒**, generates a **health score**, and provides **actionable care recommendations**.
 
 ---
 
 ## ✨ Features  
-- ✅ User-friendly form with Bootstrap-styled UI  
-- ✅ Machine Learning model (Decision Tree Classifier with sklearn)  
-- ✅ Categorical feature encoding using `OneHotEncoder`  
-- ✅ Optional image upload with simulated analysis (extendable to CNNs)  
-- ✅ Personalized plant care tips based on prediction  
-- ✅ Elegant result display with health score, tips, and uploaded image preview  
+- ✅ Clean and responsive UI built with Bootstrap 5  
+- ✅ Machine Learning model using **Decision Tree Classifier**  
+- ✅ Categorical data handling with **OneHotEncoder**  
+- ✅ Image upload support with preview and simulated analysis  
+- ✅ Personalized plant-care suggestions  
+- ✅ Health score visualization with result summary  
 
 ---
 
 ## 🛠️ Tech Stack  
-- **Backend:** Django 5.x, Python 3.10+  
-- **Frontend:** HTML5, CSS3, Bootstrap 5  
-- **Machine Learning:** scikit-learn, pandas, joblib  
-- **Image Handling:** Pillow  
-- **Storage:** Django FileSystemStorage for uploaded images  
+
+| Layer | Technology |
+|------|------------|
+| Backend | Django 5.x, Python 3.10+ |
+| Frontend | HTML5, CSS3, Bootstrap 5 |
+| Machine Learning | scikit-learn, pandas, joblib |
+| Image Processing | Pillow |
+| Model Type | Decision Tree Classifier |
+| Hosting | PythonAnywhere |
+| Storage | Django FileSystemStorage |
 
 ---
 
-## 📌 Author 
- Atharva Nathe 
+## 🔮 Future Enhancements  
+- 🌿 CNN-based leaf disease detection  
+- 📊 Model accuracy visualization  
+- 👤 User authentication & plant history tracking  
+- ☁️ Cloud storage for images  
+- 📱 Mobile-responsive enhancements  
 
+---
+
+## 👨‍💻 Author  
+**Atharva Nathe**  
+
+---
+
+## ⭐ Support  
+If you like this project, consider giving it a **star ⭐ on GitHub**!
