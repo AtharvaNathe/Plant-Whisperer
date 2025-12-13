@@ -30,3 +30,6 @@ The app predicts whether a plant is **Thriving 🌱, Okay 🌤️, Weak 🌿, or
 
 ---
 
+## 📌 Author 
+ Atharva Nathe 
+
