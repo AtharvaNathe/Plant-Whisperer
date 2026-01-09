@@ -1,4 +1,4 @@
-# 🌱 Plant Whisperer – Plant Health Prediction App  
+# 🌱 Plant Whisperer – Plant Health Prediction App   
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white&style=for-the-badge"/>
